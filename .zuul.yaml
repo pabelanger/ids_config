@@ -1,8 +1,17 @@
 ---
+- job:
+    name: ansible-tox-molecule
+    parent: tox
+    vars:
+      tox_envlist: molecule
+    nodeset: fedora-latest-1vcpu
+
 - project:
     check:
       jobs:
         - ansible-tox-linters
+        - ansible-tox-molecule
     gate:
       jobs:
         - ansible-tox-linters
+        - ansible-tox-molecule
