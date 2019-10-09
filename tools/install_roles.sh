@@ -14,10 +14,12 @@
 # under the License.
 
 TOOLSDIR=$(dirname $0)
+# TODO(pabelanger): Have molecule support existing shell variables.
+HOME=${HOME:-/home/zuul}
 
 # NOTE(pabelanger): Check if we are running in the gate, if so use cached repos
 # to avoid hitting the network.
-if [ -f /etc/ci/mirror_info.sh ]; then
+if [ -d /etc/dib-manifests/ ]; then
     sed -e "s|https://|file://${HOME}/src/|g" -i $TOOLSDIR/../requirements.yml
 fi
 
