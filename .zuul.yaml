@@ -5,6 +5,7 @@
         - ansible-tox-linters
         - ansible-tox-molecule:
             required-projects:
+              - ansible/molecule
               - ansible-security/ids_install
     gate:
       jobs:
