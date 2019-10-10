@@ -23,6 +23,4 @@ if [ -d /etc/dib-manifests/ ]; then
     sed -e "s|https://|file://${HOME}/src/|g" -i $TOOLSDIR/../requirements.yml
 fi
 
-# NOTE(pabelanger): We should make this role path less hardcoded, however we
-# first need to patch molecule.
-ansible-galaxy install -v -r $TOOLSDIR/../requirements.yml -p ~/.cache/molecule/ids_config/default/roles $@
+ansible-galaxy install -v -r $TOOLSDIR/../requirements.yml -p ~/.ansible/roles $@
